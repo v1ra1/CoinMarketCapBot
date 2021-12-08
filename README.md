@@ -91,6 +91,12 @@ java -jar CoinMarketCapBot-1.1.jar
 ### CoinMarketCap Api Setup
 Go to https://coinmarketcap.com/api/ and click the button "GET YOUR API KEY NOW". It takes less than 5 min to setup.
 
+It is also <b>FREE</b>.
+
+CoinMarketCap offers 10,000 requests a month with 333 request per day.
+
+So you can set the INTERVAL_MINUTES to 5 mintues and you will have enough free requests for a whole month.
+
 
 ### Discord Application Setup
 
