@@ -85,7 +85,7 @@ https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downlo
 ### Running
 
 ```bash
-java -jar CoinMarketCapBot-1.0.jar
+java -jar CoinMarketCapBot-1.1.jar
 ```
 
 ### CoinMarketCap Api Setup
