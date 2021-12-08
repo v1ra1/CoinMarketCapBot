@@ -74,7 +74,7 @@ public class Bot extends ListenerAdapter {
                 if (trendNumber < 0) {
                     jda.getPresence().setActivity(Activity.playing("24hr | \uD83D\uDCC9 " + formatter.format(trendNumber)));
                 } else {
-                    jda.getPresence().setActivity(Activity.playing("24hr | \uD83D\uDCC8 " + formatter.format(trendNumber)));
+                    jda.getPresence().setActivity(Activity.playing("24hr | \uD83D\uDCC8 " + formatter.format(trendNumber)+"%"));
                 }
             }
         }, 0, (60 * 1000) * 15);
