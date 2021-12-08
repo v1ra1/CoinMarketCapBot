@@ -12,7 +12,7 @@ Go to the root of the project and type:
 ```
 If on windows dont use ./
 
-Once it is built you can navigate to build/libs, and you will see CoinMarketCapBot-1.0.jar
+Once it is built you can navigate to build/libs, and you will see CoinMarketCapBot-1.1.jar
 
 ### Config
 
