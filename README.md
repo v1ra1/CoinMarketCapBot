@@ -19,11 +19,34 @@ Once it is built you can navigate to build/libs, and you will see CoinMarketCapB
 When you first run the bot it will create a app.config file. If you want to skip it automatically creating it place a file where the jar file is called app.config with the following:
 
 ```bash
+#This is the coinmarketcap api key that you get from here https://coinmarketcap.com/api/
 COINMARKETCAP_API_KEY=
+#This is the discord guild id. You can get it by turning on developer mode by going to settings in discord -> Advanced -> Developer Mode
 GUILD_ID=
+#This is the symbol that is uses. Example HEX
 COIN_TOKEN=
+#This is the discord token you generate from the discord bot after creating a application in https://discord.com/developers/
 DISCORD_TOKEN=
+#The amount of time it takes before doing an update of the bots nickname and activity
+INTERVAL_MINUTES=15
+#The presence message type is price percentage changed in 24 hours. Change it to any of the following below
+PRESENCE_MESSAGE_TYPE=percent_change_24h
 ```
+
+### PRESENCE_MESSAGE_TYPES
+
+- price - <b>Price of the coin</b>
+- volume_24h - <b>Volume of trades in the last 24 hours</b>
+- volume_change_24h - <b>Volume percentage changed in the last 24 hours</b>
+- percent_change_1h - <b>Price percentage changed in the last hour</b>
+- percent_change_24h - <b>Price percentage changed in the last 24 hours</b>
+- percent_change_7d - <b>Price percentage changed in the last 7 days</b>
+- percent_change_30d - <b>Price percentage changed in the last 30 days</b>
+- percent_change_60d - <b>Price percentage changed in the last 60 days</b>
+- percent_change_90d - <b>Price percentage changed in the last 90 days</b>
+- market_cap
+- market_cap_dominance
+- fully_diluted_market_cap
 
 ### Installing JDK 8
 
