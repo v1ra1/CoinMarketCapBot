@@ -70,9 +70,9 @@ public class Bot extends ListenerAdapter {
                 NumberFormat formatter = new DecimalFormat("#0.00");
                 Guild guild = jda.getGuildById(guildId);
                 guild.modifyNickname(guild.getSelfMember(), "$" + formatter.format((Double.parseDouble(((BigDecimal) quoteObject.get("price")).toString())))).queue();
-                double trendNumber = Double.parseDouble(((BigDecimal) quoteObject.get("volume_change_24h")).toString());
+                double trendNumber = Double.parseDouble(((BigDecimal) quoteObject.get("percent_change_24h")).toString());
                 if (trendNumber < 0) {
-                    jda.getPresence().setActivity(Activity.playing("24hr | \uD83D\uDCC9 " + formatter.format(trendNumber)));
+                    jda.getPresence().setActivity(Activity.playing("24hr | \uD83D\uDCC9 " + formatter.format(trendNumber)+"%"));
                 } else {
                     jda.getPresence().setActivity(Activity.playing("24hr | \uD83D\uDCC8 " + formatter.format(trendNumber)+"%"));
                 }
