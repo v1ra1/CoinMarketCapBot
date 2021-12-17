@@ -12,7 +12,7 @@ Go to the root of the project and type:
 ```
 If on windows dont use ./
 
-Once it is built you can navigate to build/libs, and you will see CoinMarketCapBot-1.1.jar
+Once it is built you can navigate to build/libs, and you will see CoinMarketCapBot-1.2.jar
 
 ### Config
 
@@ -31,6 +31,8 @@ DISCORD_TOKEN=
 INTERVAL_MINUTES=15
 #The presence message type is price percentage changed in 24 hours. Change it to any of the following below
 PRESENCE_MESSAGE_TYPE=percent_change_24h
+#This will determine the decimal placement on the price
+PRICE_FORMAT=0.00
 ```
 
 ### PRESENCE_MESSAGE_TYPES
