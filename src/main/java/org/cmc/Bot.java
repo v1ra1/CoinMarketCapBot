@@ -37,6 +37,8 @@ public class Bot extends ListenerAdapter {
 
     public static String presenceMessageIcon;
 
+    public static String priceFormat;
+
     public static int intervalMins;
 
     public static void main(String[] args) throws LoginException, NullPointerException, InterruptedException {
@@ -51,6 +53,7 @@ public class Bot extends ListenerAdapter {
                 prop.setProperty("DISCORD_TOKEN", "");
                 prop.setProperty("INTERVAL_MINUTES", "15");
                 prop.setProperty("PRESENCE_MESSAGE_TYPE", "percent_change_24h");
+                prop.setProperty("PRICE_FORMAT", "0.00");
                 prop.store(inputStream, "COINMARKETCAP BOT");
                 System.out.println("PLEASE CONFIGURE THE app.config FILE THAT WAS JUST GENERATED BEFORE RUNNING.");
                 return;
@@ -65,6 +68,7 @@ public class Bot extends ListenerAdapter {
         token = prop.getProperty("DISCORD_TOKEN");
         intervalMins = Integer.parseInt(prop.getProperty("INTERVAL_MINUTES"));
         presenceMessageType = prop.getProperty("PRESENCE_MESSAGE_TYPE");
+        priceFormat = prop.getProperty("PRICE_FORMAT");
 
         jda = JDABuilder.createDefault(token)
                 .disableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOTE, CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.ONLINE_STATUS)
@@ -81,9 +85,10 @@ public class Bot extends ListenerAdapter {
                     e.printStackTrace();
                     return;
                 }
+                NumberFormat priceFormatter = new DecimalFormat("#"+priceFormat);
                 NumberFormat formatter = new DecimalFormat("#0.00");
                 Guild guild = jda.getGuildById(guildId);
-                guild.modifyNickname(guild.getSelfMember(), "$" + formatter.format((Double.parseDouble(((BigDecimal) quoteObject.get("price")).toString())))).queue();
+                guild.modifyNickname(guild.getSelfMember(), "$" + priceFormatter.format((Double.parseDouble(((BigDecimal) quoteObject.get("price")).toString())))).queue();
                 double trendNumber;
                 double volNumber;
                 switch(presenceMessageType) {
@@ -217,6 +222,7 @@ public class Bot extends ListenerAdapter {
         while ((inputLine = in.readLine()) != null) {
             content.append(inputLine);
         }
+        System.out.println(content);
         in.close();
         if(content.toString().contains("status")) {
             JSONObject jsonObject = new JSONObject(content.toString());
